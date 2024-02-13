@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+
+}
+
+.container{
+    width: 100%;/* entire screen */
+    max-width: 100vh;/* square container */
+    display: grid;/* flexible positioning */
+    place-items: center; /* centric positioning */
+}
+
+/* .wrapper:
+This selector targets the element with the class name wrapper.*/
+
+.wrapper {
+   
+    width: 100rem; /* 1000 pixles or px */
+    height: 80rem;/* 800 pixles or px */
+    background-color:#1f5050;
+    border-radius : 5rem; /* This rounds the corner */
+    box-shadow: 2rem 2rem 6rem #888; /* This adds a drop shadow to 
+    the wrapper with an offset of 2rem in both directions and a blur 
+    radius of 6rem. The shadow has a slightly lighter shade of gray */
+    position: relative; /* Normal position - top, right, bottom or left */
+    overflow: hidden; 
+    /* This hides the content that overflows at then end of the sticks*/
+}
+
+/* .wrapper div ( wrapper divison):
+It selects all div elements inside the .wrapper containe*/
+
+.wrapper div {
+    position: absolute; /* takes an element out of the normal flow and 
+    positions it relative to its initial containing block. */
+}
+
+.rubber {
+    width: 67rem;
+    height: 50rem;
+    /*background-color: red;*/
+    left: 16.5rem;
+    bottom: 24rem;
+    border-bottom: 1rem solid coral;
+    box-shadow: 0 1rem 0 #ddd; 
+    /* 0 means no shadow in horizontal direction
+    1rem vertical shawdow
+    0 no blur effect
+    ddd is light grey*/
+    animation: rubberAnim 2s infinite linear;
+
+}
+
+@keyframes rubberAnim {
+    0%,
+    20%{
+        border-radius: 0;
+        transform: translateY(0);
+    }
+    50%,
+    60%{
+        border-radius: 0 0 35rem 35rem;
+        transform: translateY(23rem);
+    }
+    65%,
+    100% {
+        border-radius: 0;
+        transform: translateY(0);
+    }
+    
+}
+
+.stick-left-stick,
+.stick-right-stick {
+    width: 3rem;
+    height: 40rem;
+    background-color: coral;
+    border-radius: 1rem 1rem 0 0; /* This rounds the corner */
+    bottom: 0;
+    transform-origin: bottom center;
+} 
+.stick-left-stick {
+    left: 15rem;
+    animation: stick-left-stickAnim 2s infinite linear;
+}
+
+@keyframes stick-left-stickAnim  {
+    0%,
+    30%{
+        transform: rotateZ(0);
+    }
+    50%,
+    65%{
+        transform: rotateZ(2deg);
+    }
+    80%,
+    100% {
+        transform: rotateZ(0);
+    }
+    
+}
+.stick-right-stick {
+    right: 15rem;  
+    animation: stick-right-stickAnim 2s infinite linear;
+}
+
+@keyframes stick-right-stickAnim  {
+    0%,
+    30%{
+        transform: rotateZ(0);
+    }
+    50%,
+    65%{
+        transform: rotateZ(-2deg);
+        /* bends along the inward direction oppsite to the left*/
+    }
+    80%,
+    100% {
+        transform: rotateZ(0);
+    }
+    
+}
+
+.square{
+    width: 14rem;
+    aspect-ratio: 1;
+    background-color: #fff;
+    border-radius: 2rem; /* This rounds the corner */
+    left: 44rem;
+    box-shadow: 0 0 .2rem #555; 
+    /* 0 means no shadow in horizontal direction 
+    0 no shadow in vertical
+    .2rem means the border is black else 2rem will give shadow effect*/ 
+    animation : squareAnim 2s infinite linear;
+}
+
+@keyframes squareAnim {
+    /* translateY is to move the obj from its original position 
+    along y axis */
+    0%
+    {
+        transform: translateY(5rem); 
+        /* 5 rem down from original position  */
+    }
+    20%{
+
+        transform: translateY(40rem);
+        /*  It moves to a height of 40rem from the top  */
+    }
+    50%,
+    60%{
+        transform: translateY(64.5rem);
+         /*  50% and 60%: It moves to a height of 64.5rem from the top */
+        
+    }
+    62%{
+        transform: translateY(45rem);
+        /* 62%:It moves back to a height of 45rem from the top */
+    }
+    80%{
+        transform: translateY(10rem) rotateZ(90deg);
+        /* It moves to a height of 10rem 
+        from the top and also rotates 90 degrees */
+
+    }
+    100% {
+        transform: translateY(5rem) rotateZ(90deg);
+        /* It moves to a height of 5rem from the top 
+        and also rotates 90 degrees */
+    } 
+        
+    
+}
